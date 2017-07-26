@@ -3,16 +3,13 @@
 	 "use strict";
 	 
 	 angular.module('scotchTodo')
- .controller('CharacterController', CharacterController);
+		.controller('CharacterController', CharacterController);
  
- function CharacterController(){
-	 debugger;
-	 console.log("CharacterController invoked");
-	 
- }
-	 
-	 
-	 
+	 function CharacterController(){
+		 debugger;
+		 console.log("CharacterController invoked");
+		 
+	 }	 
  })();
  
  

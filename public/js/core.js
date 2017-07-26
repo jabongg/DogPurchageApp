@@ -8,7 +8,7 @@ angular.module('scotchTodo')
 		controller : "mainController"
     })
 	.when("/character", {
-        templateUrl : "views/character.html",
+        templateUrl : "views/characters.html",
 		controller : "CharacterController"
     })
 	.otherwise("/");
