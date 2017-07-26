@@ -1,8 +1,11 @@
-<div class="container">
 
-		<!-- HEADER AND TODO COUNT -->
-		<div class="jumbotron text-center">
-			<h1>Game Of Thrones Casts<span class="label label-info">{{ todos.length }}</span></h1>
-		</div>
+	<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"> <a href=""  ng-click="getCharacterDetails(todo._id)"> {{ todo.text }} </a></h3>
+				<input type="button" ng-click="deleteTodo(todo._id)" value="Kill the Cast" class="btn btn-danger btn-sm  pull-right" >
+			</div>
 
-</div>
+		    <div class="panel-body">
+				{{todo.dogProperty}}
+			</div>	 
+	</div>
