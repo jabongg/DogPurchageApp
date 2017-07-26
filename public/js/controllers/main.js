@@ -1,7 +1,7 @@
 angular.module('todoController', [])
 
 	// inject the Todo service factory into our controller
-	.controller('mainController', ['$scope','$http','Todos', '$location', function($scope, $http, Todos, $location) {
+	.controller('mainController', ['$scope','$http','Todos','$location', function($scope, $http, Todos,$location) {
 		$scope.formData = {};
 		$scope.loading = true;
 
@@ -51,7 +51,7 @@ angular.module('todoController', [])
 		//get user details in different page.
 		$scope.getCharacterDetails = function(id) {
 			console.log(" getCharacterDetails() function called ");
-			var path = $location.path("/character");
+			 $location.path("/character");
 		}
 		
 		

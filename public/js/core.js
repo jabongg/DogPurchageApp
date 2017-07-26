@@ -1,19 +1,17 @@
-angular.module('scotchTodo', ['todoController', 'todoService', 'angular-route']);
+angular.module('scotchTodo', ['todoController','todoService','ngRoute']);
 
-angular.module('scotchTodo', ['ngRoute'])
+angular.module('scotchTodo')
 .config(function($routeProvider) {
     $routeProvider
-    .when("/", {
-        templateUrl : "main.htm"
+	.when("/", {
+        templateUrl : "views/home.html",
+		controller : "mainController"
     })
-    .when("/character", {
-        templateUrl : "character.html",
+	.when("/character", {
+        templateUrl : "views/character.html",
 		controller : "CharacterController"
     })
-    /* .when("/green", {
-        templateUrl : "green.htm"
-    })
-    .when("/blue", {
-        templateUrl : "blue.htm"
-    }); */
+	.otherwise("/");
 });
+
+ 
