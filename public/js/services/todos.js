@@ -20,5 +20,8 @@ angular.module('todoService', [])
 			createPoem : function(todoData) {
 				return $http.post('/api/poems', todoData);
 			}
+/* 			updatePoem : function() {
+				return $http.post('/api/poems/' + id);
+			} */	
 		}
 	}]);

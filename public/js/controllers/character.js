@@ -30,6 +30,18 @@
 				}				
 		};
  
+		$scope.updatePoem = function(id) {
+			$scope.loading = true;
+
+			Todos.updatePoem(id)
+				// if successful update, call our get function to get all the new todos
+				.success(function(data) {
+					$scope.loading = false;
+					$scope.writings = data; // assign our new list of todos
+				});
+
+		}
+		
 	 function CharacterController() {
 		 debugger;
 		 console.log("CharacterController invoked");

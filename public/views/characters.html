@@ -2,17 +2,19 @@
 	
 			<!-- TODO LIST -->
 		<div class="row">
-			<div class="col-sm-4 col-sm-offset-4">
+			<div class="col-sm-10 col-sm-offset-2">
 
 				
 
 				<!-- LOOP OVER THE TODOS IN $scope.todos -->
 				<div class="checkbox" ng-repeat="story in writings track by $index">
-				
 					<div class="panel panel-default">
 					
 					<div class="panel-heading">
 						<h3 class="panel-title"> {{ story.poet }} </h3>
+						<input type="button" ng-click="updatePoem(story._id)" 
+						value="update" class="btn btn-success btn-sm  pull-right" >
+				
 					</div>
   
 					  <div class="panel-body">

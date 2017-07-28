@@ -11,6 +11,12 @@ var methodOverride = require('method-override');
 // configuration ===============================================================
 mongoose.connect(database.localUrl); 	// Connect to local MongoDB instance. A remoteUrl is also available (modulus.io)
 
+
+/* mongoose.createConnection(database.localUrl, { useMongoClient: true}, function(err){
+ if(err) console.log(err);
+ else console.log('connected successfully to database');
+});
+ */
 app.use(express.static('./public')); 		// set the static files location /public/img will be /img for users
 app.use(morgan('dev')); // log every request to the console
 app.use(bodyParser.urlencoded({'extended': 'true'})); // parse application/x-www-form-urlencoded

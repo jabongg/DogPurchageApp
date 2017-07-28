@@ -98,5 +98,21 @@ module.exports = function (app) {
         });
     });
 
+	
+/* 	    // delete a todo
+    app.post('/api/poems/:todo_id', function (req, res) {
+        Story.update({
+			poet: req.body.poet,
+			poem: req.body.poem,
+			done: false
+        }, function (err, todo) {
+            if (err)
+                res.send(err);
+
+            getTodos(res);
+        });
+    });
+
+	 */
 
 };

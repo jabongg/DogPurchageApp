@@ -55,7 +55,5 @@ angular.module('todoController', [])
 			console.log(" getCharacterDetails() function called ");
 			 $location.path("/character");
 		}
-		
-		
-		
+				
 	}]);
