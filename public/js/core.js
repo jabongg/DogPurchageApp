@@ -11,6 +11,10 @@ angular.module('scotchTodo')
         templateUrl : "views/characters.html",
 		controller : "CharacterController"
     })
+	.when("/poem", {
+		templateUrl : "views/poems.html",
+		controller : "PoemController"
+	})
 	.otherwise("/");
 });
 

@@ -3,13 +3,40 @@
 	 "use strict";
 	 
 	 angular.module('scotchTodo')
-		.controller('CharacterController', CharacterController);
+		.controller('CharacterController',['$scope','$http','Todos','$location', function($scope, $http, Todos,$location) {
+		$scope.formData = {};
+		$scope.loading = true; 
+		
+			// getting all stories
+			Todos.getPoem()
+				.success(function(data) {
+					$scope.writings = data;
+					$scope.loading = false;
+			});
+			
+		$scope.postPoem = function() {
+				if ($scope.formData.poet != undefined && $scope.formData.poem != undefined) {
+					$scope.loading = true;
+					
+					// call the createPoem function from our service (returns a promise object)
+					Todos.createPoem($scope.formData) 
+					.success(function(data) {
+											// if successful creation, call our get function to get all the new todos
+						$scope.loading = false;
+						$scope.formData = {};
+						$scope.writings = data;
+					})
+
+				}				
+		};
  
-	 function CharacterController(){
+	 function CharacterController() {
 		 debugger;
 		 console.log("CharacterController invoked");
 		 
 	 }	 
+		}]); 
+	 
  })();
  
  
