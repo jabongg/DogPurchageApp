@@ -5,5 +5,6 @@ module.exports = mongoose.model('Story', {
         type: String,
         default: ''
     },
-	poem : String
+	poem : String,
+	like : Number
 });

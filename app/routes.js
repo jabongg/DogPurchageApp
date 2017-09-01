@@ -98,21 +98,78 @@ module.exports = function (app) {
         });
     });
 
+	// get element by id
+	app.get('/api/poems/:poem_id', function(req, res) {
+		Story.findById(req.params.poem_id, function(err, story) {
+			if (err) {
+				res.status(500).send(err);
+			} 
+			if (story) {
+				res.send(story);
+			} else {
+				res.send("no story found");
+			}
+		});
+	});
 	
-/* 	    // delete a todo
-    app.post('/api/poems/:todo_id', function (req, res) {
-        Story.update({
-			poet: req.body.poet,
-			poem: req.body.poem,
-			done: false
+	app.post('/api/poems/likes/:poem_id', function (req, res) {
+		Story.findById(req.params.poem_id, function (err, todo) {  
+			if (err) {
+				res.status(500).send(err); 
+			} else {
+				//get like of the current post.
+				console.log(todo.like);
+				if (todo.like == undefined) {
+					todo.like = 0;
+				}
+				// update like of current post by 1;
+				todo.like = todo.like + 1;
+				
+			todo.save(function (err, todo) {
+				if (err) {
+					res.status(500).send(err)
+				}
+				res.send(todo);
+			});		
+			}
+		});		
+	});
+
+	
+ 	    // update a story
+	app.post('/api/poems/:poem_id', function (req, res) {
+			Story.findById(req.params.poem_id, function (err, todo) {  
+			// Handle any possible database errors
+			if (err) {
+				res.status(500).send(err);
+			} else {
+				// Update each attribute with any possible attribute that may have been submitted in the body of the request
+				// If that attribute isn't in the request body, default back to whatever it was before.
+				todo.poet = req.body.poet;
+				todo.poem = req.body.poem;
+				// Save the updated document back to the database
+				todo.save(function (err, todo) {
+					if (err) {
+						res.status(500).send(err)
+					}
+					res.send(todo);
+				});
+			}
+		});
+		
+    });
+	
+	
+	// delete a story
+    app.delete('/api/poems/:poem_id', function (req, res) {
+        Story.remove({
+            _id: req.params.poem_id
         }, function (err, todo) {
             if (err)
                 res.send(err);
 
-            getTodos(res);
+            getStories(res);
         });
     });
-
-	 */
 
 };
